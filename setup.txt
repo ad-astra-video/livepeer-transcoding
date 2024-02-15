@@ -1,0 +1,3 @@
+1) setup broadcaster/orchestrator/transcoder on server (or accessible on url)
+1b) if using separate server can use traefik to add ssl and basic auth (or any reverse proxy)
+2) broadcaster config
