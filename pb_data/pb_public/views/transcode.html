@@ -1,0 +1,141 @@
+{{define "content"}}
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold">Transcode Video</h1>
+    <div class="col mx-auto">
+        <div class="w-50 mx-auto">
+            <input type="file" accept="video/*" class="form-control" id="video-file" />
+            <div class="progress">
+                <div class="progress-bar bg-success" id="upload-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </div>
+        <div class="row pt-5">
+            <div class="col text-left">
+                <h4>Outputs</h4>
+            </div>
+            <div>
+                <input class="form-check-input text-align-left" type="checkbox" value="" id="hls-output">
+                <label class="form-check-label mr-15" for="hls-output" style="margin-right:20px">
+                    HLS
+                </label>
+                <input class="form-check-input text-align-left" type="checkbox" value="" id="mp4-output" checked>
+                <label class="form-check-label mr-15" for="mp4-output" style="margin-right:20px">
+                    MP4
+                </label>
+                <input class="form-check-input text-align-left" type="checkbox" value="" id="webm-output">
+                <label class="form-check-label mr-15" for="webm-output" style="margin-right:20px">
+                    WEBM
+                </label>
+                <input class="form-check-input text-align-left" type="checkbox" value="" id="mkv-output">
+                <label class="form-check-label" for="mkv-output" style="margin-right:20px">
+                    MKV
+                </label>
+            </div>
+        </div>
+
+        {{ block "profiles" . }} {{ end }}
+
+        <div class="row pt-5">
+            <div class="col text-left">
+                <h4>Options</h4>
+            </div>
+            <div>
+                <input class="form-check-input text-align-left" type="checkbox" value="" id="parallel-transcoding" disabled checked>
+                <label class="form-check-label" for="parallel-transcoding">
+                    Segment and transcode as fast as possible
+                </label>
+            </div>
+        </div>
+        <div class="row pt-5">
+            <button type="button" class="btn btn-primary" id="start-transcode">Start</button>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/tus-js-client@latest/dist/tus.min.js"></script>
+    <script>
+        let start_button = document.querySelector("#start-transcode");
+        start_button.addEventListener('click', function(event) {
+            event.preventDefault();
+            sendTranscodeRequest();
+        });
+
+        var file_upload = document.querySelector("#video-file");
+        var upload_progress = document.querySelector("#upload-progress");
+        file_upload.addEventListener('change', function(e) {
+            // Get the selected file from the input element
+            var file = e.target.files[0]
+
+            // Create a new tus upload
+            var upload = new tus.Upload(file, {
+                endpoint: '/upload/',
+                retryDelays: [0, 3000, 5000, 10000, 20000],
+                metadata: {
+                    filename: file.name,
+                    filetype: file.type,
+                },
+                onError: function(error) {
+                    console.log('Failed because: ' + error)
+                },
+                onProgress: function(bytesUploaded, bytesTotal) {
+                    var percentage = ((bytesUploaded / bytesTotal) * 100).toFixed(2)
+                    upload_progress.style.width = `${percentage}%`
+                    console.log(bytesUploaded, bytesTotal, percentage + '%')
+                },
+                onSuccess: function() {
+                    console.log('Download %s from %s', upload.file.name, upload.url)
+                },
+            })
+
+            // Check if there are any previous uploads to continue.
+            upload.findPreviousUploads().then(function(previousUploads) {
+                // Found previous uploads so we select the first one.
+                if (previousUploads.length) {
+                    upload.resumeFromPreviousUpload(previousUploads[0])
+                }
+
+                // Start the upload
+                upload.start()
+            })
+        })
+
+        async function sendTranscodeRequest() {
+            var fn = document.querySelector("#video-file");
+            var outputs = {
+                "hls": document.querySelector("#hls-output").checked,
+                "mp4": document.querySelector("#mp4-output").checked,
+                "webm": document.querySelector("#webm-output").checked,
+                "mkv": document.querySelector("#mkv-output").checked
+            };
+
+            var req = {
+                "input": {
+                    "type": "local",
+                    "path": fn.files[0].name
+                },
+                "storage": {
+                    "type": "local"
+                },
+                "ouputs": outputs,
+                "profiles": getProfiles(),
+                "parallel_transcoding": document.querySelector("#parallel-transcoding").checked
+            }
+
+            //send transcode request
+            let resp = await fetch("/transcode", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(req)
+            });
+
+            if (resp.ok) {
+                return resp.json();
+            } else {
+                return null;
+            }
+
+        }
+    </script>
+    {{end}}

@@ -1,3 +1,7 @@
 1) setup broadcaster/orchestrator/transcoder on server (or accessible on url)
 1b) if using separate server can use traefik to add ssl and basic auth (or any reverse proxy)
 2) broadcaster config
+3) setup data dir
+      [folder root]/pb_data/videos/assets
+      [folder root]/pb_data/videos/uploads
+      [folder root]/pb_data/videos/segments

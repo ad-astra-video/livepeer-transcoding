@@ -21,4 +21,6 @@
 go.work
 
 .vscode
-pb_data
+pb_data/videos/assets/*
+pb_data/videos/uploads/*
+pb_data/videos/segments/*
