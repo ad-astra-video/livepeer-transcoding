@@ -255,7 +255,7 @@ func setupRoutes(app *pocketbase.PocketBase) {
 				return apis.NewApiError(500, "could not start transcode", nil)
 			}
 			transcodeReq := string(data)
-			t, err := NewFfmpegTranscode(app.DataDir()+"/segments", transcodeReq, bUrls, user, app)
+			t, err := NewFfmpegTranscode(app.DataDir()+"/videos/segments", transcodeReq, bUrls, user, app)
 			if err != nil {
 				ErrorLogger.Printf("could not start transcode: %v\n", err.Error())
 				return apis.NewApiError(500, "could not start transcode", nil)
@@ -308,14 +308,14 @@ func getBroadcasters(workDir string) ([]*Broadcaster, error) {
 }
 
 func initTus(app *pocketbase.PocketBase) (*tusd.Handler, error) {
-	uploadPath := app.DataDir() + "/uploads"
+	uploadPath := app.DataDir() + "/videos/uploads"
 	_, err := os.Stat(uploadPath)
 	if err != nil {
 		return nil, err
 	}
 	//setup tus upload things
 	store := filestore.FileStore{
-		Path: app.DataDir() + "/uploads",
+		Path: app.DataDir() + "/videos/uploads",
 	}
 	composer := tusd.NewStoreComposer()
 	store.UseIn(composer)
@@ -402,7 +402,7 @@ func saveTusUpload(app core.App) echo.MiddlewareFunc {
 				collection, _ := app.Dao().FindCollectionByNameOrId("uploads")
 				record := models.NewRecord(collection)
 				record.Set("user", user.Id)
-				record.Set("localfile", app.DataDir()+"/uploads/"+locFn)
+				record.Set("localfile", app.DataDir()+"/videos/uploads/"+locFn)
 				record.Set("filename", fn)
 				record.Set("filetype", ft)
 				if err := app.Dao().SaveRecord(record); err != nil {

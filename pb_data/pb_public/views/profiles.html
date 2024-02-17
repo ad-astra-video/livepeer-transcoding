@@ -7,35 +7,48 @@
 <div class="container-lg overflow-auto" style="min-width: 550px; overflow-x:scroll;">
     <div class=" row">
         <div class="col">
-            <h6>Name</h6>
-        </div>
-        <div class="col" style="min-width: 45px;">
-            <h6>Codec</h6>
+            <h6></h6>
         </div>
         <div class="col">
-            <h6>Type</h6>
+            <h6>1</h6>
         </div>
         <div class="col">
-            <h6>Width</h6>
+            <h6>2</h6>
         </div>
         <div class="col">
-            <h6>Height</h6>
+            <h6>3</h6>
         </div>
         <div class="col">
-            <h6>FPS</h6>
+            <h6>4</h6>
         </div>
         <div class="col">
-            <h6>Color Depth</h6>
-        </div>
-        <div class="col">
-            <h6>CRF</h6>
-        </div>
-        <div class="col">
-            <h6>Preset</h6>
+            <h6>5</h6>
         </div>
     </div>
-    <div class="row">
-        <div class="col"><input class="form-control text-center" type="text" id="p1-name" value="240p"></div>
+    <div class=" row">
+        <div class="col">
+            <h6>Name</h6>
+        </div>
+        <div class="col">
+            <input class="form-control text-center" type="text" id="p1-name" value="240p">
+        </div>
+        <div class="col">
+            <input class="form-control text-center" type="text" id="p2-name" value="">
+        </div>
+        <div class="col">
+            <input class="form-control text-center" type="text" id="p3-name" value="">
+        </div>
+        <div class="col">
+            <input class="form-control text-center" type="text" id="p4-name" value="">
+        </div>
+        <div class="col">
+            <input class="form-control text-center" type="text" id="p5-name" value="">
+        </div>
+    </div>
+    <div class=" row">
+        <div class="col">
+            <h6>Codec</h6>
+        </div>
         <div class="col">
             <select class="form-control text-center" id="p1-codec">
                 <option value="H.264">H264</option>
@@ -43,163 +56,316 @@
             </select>
         </div>
         <div class="col">
-            <select class="form-control text-center" id="p1-type">
-                <option selected value="ANY">ANY</option>
-                <option value="CPU">CPU</option>
-                <option value="HDW">Hardware</option>
-            </select>
-        </div>
-        <div class="col"><input class="form-control text-center" type="number" step="1" id="p1-width" value="432"></div>
-        <div class="col"><input class="form-control text-center" type="number" step="1" id="p1-height" value="240"></div>
-        <div class="col"><input class="form-control text-center" type="number" step="1" id="p1-fps"></div>
-        <div class="col">
-            <select class="form-control text-center" id="p1-color-depth">
-                <option selected value="0">8</option>
-                <option value="2">10</option>
-            </select>
-        </div>
-        <div class="col"><input class="form-control text-center" type="number" step="1" id="p1-crf" value="30"></div>
-        <div class="col"><input class="form-control text-center" type="text" id="p1-preset" value="10"></div>
-    </div>
-    <div class="row">
-        <div class="col-12 form-floating">
-            <input class="form-control mt-2 mb-4" type="text" id="p1-params">
-            <label for="p1-params">Params</label>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col"><input class="form-control text-center" type="text" id="p2-name" value="480p"></div>
-        <div class="col">
             <select class="form-control text-center" id="p2-codec">
                 <option value="H.264">H264</option>
                 <option selected value="AV1">AV1</option>
             </select>
         </div>
         <div class="col">
-            <select class="form-control text-center" id="p2-type">
-                <option selected value="ANY">ANY</option>
-                <option value="CPU">CPU</option>
-                <option value="HDW">Hardware</option>
-            </select>
-        </div>
-        <div class="col"><input class="form-control text-center" type="number" step="1" id="p2-width" value="854"></div>
-        <div class="col"><input class="form-control text-center" type="number" step="1" id="p2-height" value="480"></div>
-        <div class="col"><input class="form-control text-center" type="number" step="1" id="p2-fps"></div>
-        <div class="col">
-            <select class="form-control text-center" id="p2-color-depth">
-                <option value="0">8</option>
-                <option selected value="2">10</option>
-            </select>
-        </div>
-        <div class="col"><input class="form-control text-center" type="number" step="1" id="p2-crf" value="30"></div>
-        <div class="col"><input class="form-control text-center" type="text" id="p2-preset" value="10"></div>
-    </div>
-    <div class="row">
-        <div class="col-12 form-floating">
-            <input class="form-control mt-2 mb-4" type="text" id="p2-params">
-            <label for="p2-params">Params</label>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col"><input class="form-control text-center" type="text" id="p3-name"></div>
-        <div class="col">
             <select class="form-control text-center" id="p3-codec">
-                <option selected value="H.264">H264</option>
-                <option value="AV1">AV1</option>
+                <option value="H.264">H264</option>
+                <option selected value="AV1">AV1</option>
             </select>
         </div>
-        <div class="col">
-            <select class="form-control text-center" id="p3-type">
-                <option selected value="ANY">ANY</option>
-                <option value="CPU">CPU</option>
-                <option value="HDW">Hardware</option>
-            </select>
-        </div>
-        <div class="col"><input class="form-control text-center" type="number" step="1" id="p3-width"></div>
-        <div class="col"><input class="form-control text-center" type="number" step="1" id="p3-height"></div>
-        <div class="col"><input class="form-control text-center" type="number" step="1" id="p3-fps"></div>
-        <div class="col">
-            <select class="form-control text-center" id="p3-color-depth">
-                <option selected value="0">8</option>
-                <option value="2">10</option>
-            </select>
-        </div>
-        <div class="col"><input class="form-control text-center" type="number" step="1" id="p3-crf" value="30"></div>
-        <div class="col"><input class="form-control text-center" type="text" id="p3-preset" value="10"></div>
-    </div>
-    <div class="row">
-        <div class="col-12 form-floating">
-            <input class="form-control mt-2 mb-4" type="text" id="p3-params">
-            <label for="p3-params">Params</label>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col"><input class="form-control text-center" type="text" id="p4-name"></div>
         <div class="col">
             <select class="form-control text-center" id="p4-codec">
-                <option selected value="H.264">H264</option>
-                <option value="AV1">AV1</option>
+                <option value="H.264">H264</option>
+                <option selected value="AV1">AV1</option>
             </select>
         </div>
-        <div class="col">
-            <select class="form-control text-center" id="p4-type">
-                <option selected value="ANY">ANY</option>
-                <option value="CPU">CPU</option>
-                <option value="HDW">Hardware</option>
-            </select>
-        </div>
-        <div class="col"><input class="form-control text-center" type="number" step="1" id="p4-width"></div>
-        <div class="col"><input class="form-control text-center" type="number" step="1" id="p4-height"></div>
-        <div class="col"><input class="form-control text-center" type="number" step="1" id="p4-fps"></div>
-        <div class="col">
-            <select class="form-control text-center" id="p4-color-depth">
-                <option selected value="0">8</option>
-                <option value="2">10</option>
-            </select>
-        </div>
-        <div class="col"><input class="form-control text-center" type="number" step="1" id="p4-crf" value="30"></div>
-        <div class="col"><input class="form-control text-center" type="text" id="p4-preset" value="10"></div>
-    </div>
-    <div class="row">
-        <div class="col-12 form-floating">
-            <input class="form-control mt-2 mb-4" type="text" id="p4-params">
-            <label for="p4-params">Params</label>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col"><input class="form-control text-center" type="text" id="p5-name"></div>
         <div class="col">
             <select class="form-control text-center" id="p5-codec">
-                <option selected value="H.264">H264</option>
-                <option value="AV1">AV1</option>
+                <option value="H.264">H264</option>
+                <option selected value="AV1">AV1</option>
             </select>
         </div>
+    </div>
+    <div class=" row">
         <div class="col">
-            <select class="form-control text-center" id="p5-type">
-                <option selected value="ANY">ANY</option>
-                <option value="CPU">CPU</option>
-                <option value="HDW">Hardware</option>
+            <h6>Width</h6>
+        </div>
+        <div class="col">
+            <input class="form-control text-center" type="number" min="64" max="4096" step="1" id="p1-width" value="432">
+        </div>
+        <div class="col">
+            <input class="form-control text-center" type="number" min="64" max="4096" step="1" id="p2-width" value="64">
+        </div>
+        <div class="col">
+            <input class="form-control text-center" type="number" min="64" max="4096" step="1" id="p3-width" value="64">
+        </div>
+        <div class="col">
+            <input class="form-control text-center" type="number" min="64" max="4096" step="1" id="p4-width" value="64">
+        </div>
+        <div class="col">
+            <input class="form-control text-center" type="number" min="64" max="4096" step="1" id="p5-width" value="64">
+        </div>
+    </div>
+    <div class=" row">
+        <div class="col">
+            <h6>Height</h6>
+        </div>
+        <div class="col">
+            <input class="form-control text-center" type="number" min="64" max="4096" step="1" id="p1-height" value="240">
+        </div>
+        <div class="col">
+            <input class="form-control text-center" type="number" min="64" max="4096" step="1" id="p2-height" value="64">
+        </div>
+        <div class="col">
+            <input class="form-control text-center" type="number" min="64" max="4096" step="1" id="p3-height" value="64">
+        </div>
+        <div class="col">
+            <input class="form-control text-center" type="number" min="64" max="4096" step="1" id="p4-height" value="64">
+        </div>
+        <div class="col">
+            <input class="form-control text-center" type="number" min="64" max="4096" step="1" id="p5-height" value="64">
+        </div>
+    </div>
+    <div class=" row">
+        <div class="col">
+            <h6>FPS</h6>
+        </div>
+        <div class="col">
+            <input class="form-control text-center" type="number" min=0 step=1 id="p1-fps" value=0>
+        </div>
+        <div class="col">
+            <input class="form-control text-center" type="number" min=0 step=1 id="p2-fps" value=0>
+        </div>
+        <div class="col">
+            <input class="form-control text-center" type="number" min=0 step=1 id="p3-fps" value=0>
+        </div>
+        <div class="col">
+            <input class="form-control text-center" type="number" min=0 step=1 id="p4-fps" value=0>
+        </div>
+        <div class="col">
+            <input class="form-control text-center" type="number" min=0 step=1 id="p5-fps" value=0>
+        </div>
+    </div>
+    <div class=" row">
+        <div class="col">
+            <h6>Bitrate</h6>
+        </div>
+        <div class="col">
+            <input class="form-control text-center" type="number" min=1 id="p1-bitrate" value=1000000>
+        </div>
+        <div class="col">
+            <input class="form-control text-center" type="number" min=1 id="p2-bitrate" value=1000000>
+        </div>
+        <div class="col">
+            <input class="form-control text-center" type="number" min=1 id="p3-bitrate" value=1000000>
+        </div>
+        <div class="col">
+            <input class="form-control text-center" type="number" min=1 id="p4-bitrate" value=1000000>
+        </div>
+        <div class="col">
+            <input class="form-control text-center" type="number" min=1 id="p5-bitrate" value=1000000>
+        </div>
+    </div>
+    <div class=" row">
+        <div class=" col">
+            <h6>Profile</h6>
+        </div>
+        <div class=" col">
+            <select class="form-control text-center" id="p1-profile">
+                <option selected value="h264main">Main</option>
+                <option value="h264high" disabled>High</option>
+                <option value="h264baseline" disabled>Baseline</option>
             </select>
         </div>
-        <div class="col"><input class="form-control text-center" type="number" step="1" id="p5-width"></div>
-        <div class="col"><input class="form-control text-center" type="number" step="1" id="p5-height"></div>
-        <div class="col"><input class="form-control text-center" type="number" step="1" id="p5-fps"></div>
+        <div class=" col">
+            <select class="form-control text-center" id="p2-profile">
+                <option selected value="h264main">Main</option>
+                <option value="h264high" disabled>High</option>
+                <option value="h264baseline" disabled>Baseline</option>
+            </select>
+        </div>
+        <div class=" col">
+            <select class="form-control text-center" id="p3-profile">
+                <option selected value="h264main">Main</option>
+                <option value="h264high" disabled>High</option>
+                <option value="h264baseline" disabled>Baseline</option>
+            </select>
+        </div>
+        <div class=" col">
+            <select class="form-control text-center" id="p4-profile">
+                <option selected value="h264main">Main</option>
+                <option value="h264high" disabled>High</option>
+                <option value="h264baseline" disabled>Baseline</option>
+            </select>
+        </div>
+        <div class=" col">
+            <select class="form-control text-center" id="p5-profile">
+                <option selected value="h264main">Main</option>
+                <option value="h264high" disabled>High</option>
+                <option value="h264baseline" disabled>Baseline</option>
+            </select>
+        </div>
+    </div>
+    <div class=" row">
+        <div class=" col">
+            <h6>CRF</h6>
+        </div>
+        <div class=" col">
+            <input class="form-control text-center" type="number" min="0" max="51" step="1" id="p1-crf" value="30">
+        </div>
+        <div class=" col">
+            <input class="form-control text-center" type="number" min="0" max="51" step="1" id="p2-crf" value="30">
+        </div>
+        <div class=" col">
+            <input class="form-control text-center" type="number" min="0" max="51" step="1" id="p3-crf" value="30">
+        </div>
+        <div class=" col">
+            <input class="form-control text-center" type="number" min="0" max="51" step="1" id="p4-crf" value="30">
+        </div>
+        <div class=" col">
+            <input class="form-control text-center" type="number" min="0" max="51" step="1" id="p5-crf" value="30">
+        </div>
+    </div>
+    <div class=" row">
         <div class="col">
-            <select class="form-control text-center" id="p5-color-depth">
+            <h6>Color Depth</h6>
+        </div>
+        <div class="col">
+            <select class="form-control text-center" id="p1-color-depth" disabled>
                 <option selected value="0">8</option>
                 <option value="2">10</option>
             </select>
         </div>
-        <div class="col"><input class="form-control text-center" type="number" step="1" id="p5-crf" value="30"></div>
-        <div class="col"><input class="form-control text-center" type="text" id="p5-preset" value="10"></div>
+        <div class="col">
+            <select class="form-control text-center" id="p2-color-depth" disabled>
+                <option selected value="0">8</option>
+                <option value="2">10</option>
+            </select>
+        </div>
+        <div class="col">
+            <select class="form-control text-center" id="p3-color-depth" disabled>
+                <option selected value="0">8</option>
+                <option value="2">10</option>
+            </select>
+        </div>
+        <div class="col">
+            <select class="form-control text-center" id="p4-color-depth" disabled>
+                <option selected value="0">8</option>
+                <option value="2">10</option>
+            </select>
+        </div>
+        <div class="col">
+            <select class="form-control text-center" id="p5-color-depth" disabled>
+                <option selected value="0">8</option>
+                <option value="2">10</option>
+            </select>
+        </div>
     </div>
-    <div class="row">
-        <div class="col-12 form-floating">
-            <input class="form-control mt-2 mb-4" type="text" id="p5-params">
-            <label for="p5-params">Params</label>
+    <div class=" row">
+        <div class="col">
+            <h6>GOP</h6>
+        </div>
+        <div class="col">
+            <input class="form-control text-center" type="number" step="1" id="p1-gop" value="1">
+        </div>
+        <div class="col">
+            <input class="form-control text-center" type="number" step="1" id="p2-gop" value="1">
+        </div>
+        <div class="col">
+            <input class="form-control text-center" type="number" step="1" id="p3-gop" value="1">
+        </div>
+        <div class="col">
+            <input class="form-control text-center" type="number" step="1" id="p4-gop" value="1">
+        </div>
+        <div class="col">
+            <input class="form-control text-center" type="number" step="1" id="p5-gop" value="1">
+        </div>
+    </div>
+    <div class=" row">
+        <div class="col">
+            <h6>Type</h6>
+        </div>
+        <div class="col">
+            <select class="form-control text-center" id="p1-type" disabled>
+                <option selected value="ANY">ANY</option>
+                <option value="CPU" disabled>CPU</option>
+                <option value="HDW" disabled>Hardware</option>
+            </select>
+        </div>
+        <div class="col">
+            <select class="form-control text-center" id="p2-type" disabled>
+                <option selected value="ANY">ANY</option>
+                <option value="CPU" disabled>CPU</option>
+                <option value="HDW" disabled>Hardware</option>
+            </select>
+        </div>
+        <div class="col">
+            <select class="form-control text-center" id="p3-type" disabled>
+                <option selected value="ANY">ANY</option>
+                <option value="CPU" disabled>CPU</option>
+                <option value="HDW" disabled>Hardware</option>
+            </select>
+        </div>
+        <div class="col">
+            <select class="form-control text-center" id="p4-type" disabled>
+                <option selected value="ANY">ANY</option>
+                <option value="CPU" disabled>CPU</option>
+                <option value="HDW" disabled>Hardware</option>
+            </select>
+        </div>
+        <div class="col">
+            <select class="form-control text-center" id="p5-type" disabled>
+                <option selected value="ANY">ANY</option>
+                <option value="CPU" disabled>CPU</option>
+                <option value="HDW" disabled>Hardware</option>
+            </select>
+        </div>
+    </div>
+    <div class=" row min-vh-25">
+        <div class="col">
+            <h6>Params</h6>
+        </div>
+        <div class="col">
+            <div class="col form-floating">
+                <input class="form-control mt-2 mb-4" type="text" id="p1-params" disabled>
+                <label for="p1-params">Params - not implemented</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="col form-floating">
+                <input class="form-control mt-2 mb-4" type="text" id="p2-params" disabled>
+                <label for="p2-params">Params - not implemented</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="col form-floating">
+                <input class="form-control mt-2 mb-4" type="text" id="p3-params" disabled>
+                <label for="p3-params">Params - not implemented</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="col form-floating">
+                <input class="form-control mt-2 mb-4" type="text" id="p4-params" disabled>
+                <label for="p4-params">Params - not implemented</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="col form-floating">
+                <input class="form-control mt-2 mb-4" type="text" id="p5-params" disabled>
+                <label for="p5-params">Params - not implemented</label>
+            </div>
         </div>
     </div>
 </div>
+<style>
+    /* Chrome, Safari, Edge, Opera */
+    
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    /* Firefox */
+    
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+</style>
+
 <script>
     function getProfiles() {
         var profiles = [];
@@ -212,21 +378,24 @@
             if (fps > 0) {
                 prof["fps"] = fps;
             }
-            //prof["bitrate"] use the params field
-            //prof["profile"]  use the params field
-            //prof["gop"] use the params field
+            prof["bitrate"] = parseInt(document.querySelector("#p" + p + "-bitrate").value);
+            prof["profile"] = document.querySelector("#p" + p + "-profile").value
+            prof["gop"] = document.querySelector("#p" + p + "-gop").value
             prof["colorDepth"] = parseInt(document.querySelector("#p" + p + "-color-depth").value);
             prof["encoder"] = document.querySelector("#p" + p + "-codec").value;
             let q = parseInt(document.querySelector("#p" + p + "-crf").value);
             if (q > 0) {
                 prof["quality"] = q;
             }
-            let params = document.querySelector("#p" + p + "-params").value;
-            if (params != "") {
-                prof["av1Params"]
-            }
 
-            prof["av1Preset"] = parseInt(document.querySelector("#p" + p + "-preset").value);
+            //not implemented in go-livepeer
+
+            //let params = document.querySelector("#p" + p + "-params").value;
+            //if (params != "") {
+            //    prof["params"]
+            //}
+
+            //prof["preset"] = parseInt(document.querySelector("#p" + p + "-preset").value);
 
             console.log(prof["name"])
             if (validateProfile(prof) == true) {

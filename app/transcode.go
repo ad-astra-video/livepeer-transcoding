@@ -190,7 +190,7 @@ func (f *FfmpegTranscode) segmentAndTranscodeVideo(segDur int) error {
 	}
 
 	//segment video on key frames using
-	fpErr := ffmpeg.Input(f.UploadFile, ffmpeg.KwArgs{"f": strings.Replace(inpExt, ".", "", 1)}).Output(fn+"_%d"+inpExt, ffmpeg.KwArgs{"f": "segment", "segment_time": fmt.Sprint(segDur), "min_seg_duration": fmt.Sprint(segDur / 2), "segment_list": seg_list, "segment_list_type": "csv", "reset_timestamps": "1", "c": "copy"}).OverWriteOutput().ErrorToStdOut().Run()
+	fpErr := ffmpeg.Input(f.UploadFile, ffmpeg.KwArgs{"f": strings.Replace(inpExt, ".", "", 1)}).Output(fn+"_%d"+inpExt, ffmpeg.KwArgs{"f": "segment", "segment_time": fmt.Sprint(segDur), "min_seg_duration": fmt.Sprint(segDur / 2), "segment_list": seg_list, "segment_list_type": "csv", "reset_timestamps": "0", "c": "copy"}).OverWriteOutput().ErrorToStdOut().Run()
 
 	if fpErr != nil {
 		ErrorLogger.Printf("video segmenter had error:  %v\n", err.Error())
@@ -275,9 +275,9 @@ func (f *FfmpegTranscode) transcodeSegments() error {
 		return errors.New("could not get segments for transcode")
 	}
 
-	//transcode up to 3 segments at one time
+	//transcode up to 5 segments at one time
 	segPace := float64(2)
-	tchan := make(chan int, 2)
+	tchan := make(chan int, 5)
 	var wg sync.WaitGroup
 	InfoLogger.Printf("%v transcoding %v segments\n", f.RequestId, len(segments))
 	for ss := 0; ss < 3; ss++ {
@@ -577,7 +577,7 @@ func (f *FfmpegTranscode) newS3UploadFile() (string, error) {
 
 	record := models.NewRecord(collection)
 	record.Set("user", f.User.Id)
-	record.Set("localfile", f.pApp.DataDir()+"/uploads/"+uuid.NewString()+fileType.Extension())
+	record.Set("localfile", f.pApp.DataDir()+"/videos/uploads/"+uuid.NewString()+fileType.Extension())
 	record.Set("filename", f.Request.Input.Path)
 	record.Set("filetype", fileType.String())
 

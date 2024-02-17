@@ -20,7 +20,7 @@
 # Go workspace file
 go.work
 
-.vscode
+
 pb_data/videos/assets/*
 pb_data/videos/uploads/*
 pb_data/videos/segments/*
